@@ -56,6 +56,7 @@ def report_entry(total_reports):
             type_of_test = request.form.get('type_of_test_' + str(i), '')
             test_method = request.form.get('test_method_' + str(i), '')
             equipment_used = request.form.get('equipment_used_' + str(i), '')
+            doc_type = request.form.get('doc_type' + str(i), '')
 
 
             cursor.execute("""
@@ -63,13 +64,13 @@ def report_entry(total_reports):
                 (issued_to, address, asr_job_id, cust_date, report_date, 
                 asr_job_date, testing_date, customer_ref_no, sample_description, 
                 total_reports, tested_by, ulr_no, report_no, type_of_test, 
-                test_method, equipment_used) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                test_method, equipment_used,doc_type) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s)
             """, (form_data['issued_to'], form_data['address'], form_data['asr_job_id'], 
                   form_data['cust_date'], form_data['report_date'], form_data['asr_job_date'], 
                   form_data['testing_date'], form_data['customer_ref_no'], 
                   form_data['sample_description'], total_reports, form_data['tested_by'], 
-                  ulr_no, report_no, type_of_test, test_method, equipment_used))
+                  ulr_no, report_no, type_of_test, test_method, equipment_used, doc_type))
         
         mysql.connection.commit()
         cursor.close()
