@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="text-center text-primary">Sample Entry Form</h1>
+            <form action="/sample-entry" method="POST">
+                <div class="form-group">
+                    <label>Issued To:</label>
+                    <input type="text" class="form-control" name="issued_to" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Address:</label>
+                    <input type="text" class="form-control" name="address" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ASR Job ID:</label>
+                    <input type="text" class="form-control" name="asr_job_id" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Customer Date:</label>
+                    <input type="date" class="form-control" name="cust_date" value="{{ today }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Report Date:</label>
+                    <input type="date" class="form-control" name="report_date" value="{{ today }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ASR Job Date:</label>
+                    <input type="date" class="form-control" name="asr_job_date" value="{{ today }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Testing Date:</label>
+                    <input type="date" class="form-control" name="testing_date" value="{{ today }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Customer Ref No:</label>
+                    <input type="text" class="form-control" name="customer_ref_no">
+                </div>
+
+                <div class="form-group">
+                    <label>Sample Description:</label>
+                    <textarea class="form-control" name="sample_description" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    
+    
+                    <label for="number">Total Number of Reports to be Generated:</label>
+                    <input type="number" id="number" class="form-control" name="total_reports" min="1" required>
+                
+                </div>
+
+                <div class="form-group">
+                    <label>Tested By:</label>
+                    <input type="text" class="form-control" name="tested_by" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Next</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

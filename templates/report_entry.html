@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Report Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Report Entry</h1>
+    <form action="/report_entry/{{ total_reports }}" method="POST">
+        <div id="dynamicForm">
+            {% for i in range(1, total_reports + 1) %}
+            <div class="report-box">
+            <h3>Report {{ i }}</h3>
+
+            <label for="ulr_{{ i }}">ULR Number:</label>
+            <input type="number" id="ulr_{{ i }}" name="ulr_{{ i }}" 
+                   value="{{ max_ulr + i - 1 }}" oninput="updateIncrement({{ i }})" required>
+
+            <label>Report No:</label>
+            <input type="text" name="report_no_{{ i }}" required>
+
+            <label>Type of Test:</label>
+            <input type="text" name="test_type_{{ i }}" required>
+
+
+            <label>Test Method:</label>
+            <input type="text" id="test_method_{{ i }}" name="test_method_{{ i }}" required>
+
+            <label>Equipment Used:</label>
+            <input type="text" id="equipment_{{ i }}" name="equipment_used_{{ i }}" required>
+
+            <hr>
+            </div>
+            {% endfor %}
+        </div>
+        <button type="submit">Submit</button>
+
+    </div>
+    </form>
+
+    <script>
+        function updateIncrement(index) {
+            let baseValue = parseInt(document.getElementById(`ulr_1`).value);
+            for (let i = 2; i <= {{ total_reports }}; i++) {
+                document.getElementById(`ulr_${i}`).value = baseValue + i - 1;
+            }
+        } 
+    </script>
+    
+    
+</body>
+</html>

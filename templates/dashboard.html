@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-container">
+            <h1 class="text-center">ASR METALLURGY PVT. LTD</h1>
+            <div class="button-container">
+                <a href="{{ url_for('sample_entry') }}" class="btn btn-primary btn-lg btn-block">Sample Entry</a>
+                <a href="#" class="btn btn-success btn-lg btn-block">File Upload</a>
+                <a href="#" class="btn btn-warning btn-lg btn-block">Insights</a>
+                <a href="#" class="btn btn-danger btn-lg btn-block">Database Update</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
